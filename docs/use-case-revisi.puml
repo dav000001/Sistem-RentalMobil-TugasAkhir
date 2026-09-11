@@ -1,0 +1,102 @@
+@startuml Sistem Informasi Rental Mobil Multi-Vendor
+
+' Pengaturan Tata Letak & Tampilan PlantUML
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+' Estetika Warna Diagram
+skinparam actor {
+    BackgroundColor #E3F2FD
+    BorderColor #1565C0
+}
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #37474F
+    ArrowColor #555555
+}
+skinparam rectangle {
+    BackgroundColor #FAFAFA
+    BorderColor #BDBDBD
+}
+
+' 1. Definisi Aktor
+actor "Penyewa (Customer)" as Customer
+actor "Vendor (Mitra)" as Vendor
+actor "Admin System" as Admin
+
+' 2. Batas Sistem & Use Cases
+rectangle "Sistem Informasi Rental Mobil Multi-Vendor" {
+    
+    ' Akses & Akun
+    usecase "Login System" as UC_Login
+    usecase "Verifikasi Akun" as UC_Verifikasi
+    
+    ' Fitur Penyewa (Customer)
+    usecase "Cari & Filter Mobil" as UC_Cari
+    usecase "Lihat Detail Kendaraan" as UC_Detail
+    usecase "Wishlist / Mobil Favorit" as UC_Wishlist
+    usecase "Pemesanan Mobil (Booking)" as UC_Booking
+    usecase "Upload Bukti Pembayaran" as UC_UploadBayar
+    usecase "Tracking Status Pemesanan" as UC_Tracking
+    usecase "Rating & Ulasan Vendor" as UC_Rating
+    
+    ' Fitur Vendor (Mitra)
+    usecase "Kelola Profil Usaha" as UC_ProfilVendor
+    usecase "Kelola Data Armada (CRUD)" as UC_Armada
+    usecase "Kelola Pesanan Masuk" as UC_PesananMasuk
+    usecase "Konfirmasi Serah Terima" as UC_SerahTerima
+    usecase "Laporan & Dashboard Analitik" as UC_Laporan
+    usecase "Export Laporan (PDF/Excel)" as UC_Export
+    
+    ' Fitur Admin System
+    usecase "Manajemen Pengguna & Vendor" as UC_MgmtUser
+    usecase "Validasi Pembayaran" as UC_ValidasiBayar
+    usecase "Kelola Refund & Komplain" as UC_Refund
+    usecase "Monitoring Transaksi & Payout" as UC_Payout
+}
+
+' 3. Relasi Aktor Utama ke Use Case
+Customer -- UC_Login
+Customer -- UC_Verifikasi
+Customer -- UC_Cari
+Customer -- UC_Detail
+Customer -- UC_Wishlist
+Customer -- UC_Booking
+Customer -- UC_UploadBayar
+Customer -- UC_Tracking
+Customer -- UC_Rating
+
+Vendor -- UC_Login
+Vendor -- UC_Verifikasi
+Vendor -- UC_ProfilVendor
+Vendor -- UC_Armada
+Vendor -- UC_PesananMasuk
+Vendor -- UC_SerahTerima
+Vendor -- UC_Laporan
+
+Admin -- UC_Login
+Admin -- UC_Verifikasi
+Admin -- UC_MgmtUser
+Admin -- UC_ValidasiBayar
+Admin -- UC_Refund
+Admin -- UC_Payout
+Admin -- UC_Laporan
+
+' 4. Relasi <<include>> (Persyaratan/Proses Wajib)
+UC_Booking ..> UC_Login : <<include>>
+UC_Booking ..> UC_Cari : <<include>>
+UC_Booking ..> UC_Detail : <<include>>
+UC_UploadBayar ..> UC_Booking : <<include>>
+UC_Armada ..> UC_Login : <<include>>
+UC_PesananMasuk ..> UC_Login : <<include>>
+
+' 5. Relasi <<extend>> (Fitur Tambahan Opsional/Kondisional)
+UC_Wishlist .> UC_Cari : <<extend>>
+UC_Rating .> UC_Tracking : <<extend>>
+UC_Refund .> UC_Booking : <<extend>>
+UC_Export .> UC_Laporan : <<extend>>
+
+@enduml

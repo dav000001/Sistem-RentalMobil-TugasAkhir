@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>E-Book Panduan Sistem Rental Mobil Multi-Vendor</title>
+<style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background: #ffffff;
+    margin: 0;
+    padding: 10px;
+}
+.cover-page {
+    text-align: center;
+    padding: 120px 20px 80px 20px;
+    page-break-after: always;
+}
+.cover-badge {
+    display: inline-block;
+    background: #1d4ed8;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.cover-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+.cover-subtitle {
+    font-size: 16px;
+    color: #475569;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+.cover-divider {
+    width: 70px;
+    height: 4px;
+    background: #2563eb;
+    margin: 25px auto;
+    border-radius: 2px;
+}
+.cover-meta {
+    font-size: 13.5px;
+    color: #64748b;
+    margin-top: 60px;
+    line-height: 1.8;
+}
+h1 {
+    font-size: 20px;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 32px;
+}
+h2 {
+    font-size: 17px;
+    color: #1e3a8a;
+    margin-top: 22px;
+}
+h3 {
+    font-size: 15px;
+    color: #1e293b;
+    margin-top: 16px;
+}
+h4 {
+    font-size: 14px;
+    color: #334155;
+    margin-top: 12px;
+}
+p, li {
+    font-size: 13px;
+    color: #334155;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 12px;
+}
+th {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+    border: 1px solid #cbd5e1;
+    padding: 8px 10px;
+    text-align: left;
+}
+td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+}
+tr:nth-child(even) td {
+    background: #f8fafc;
+}
+pre {
+    background: #0f172a;
+    color: #f1f5f9;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Consolas', monospace;
+    font-size: 11px;
+    line-height: 1.35;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+code {
+    background: #f1f5f9;
+    color: #b91c1c;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+    font-size: 11.5px;
+}
+pre code {
+    background: transparent;
+    color: #f1f5f9;
+    padding: 0;
+}
+blockquote {
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+    margin: 14px 0;
+    padding: 8px 14px;
+    color: #1e40af;
+    border-radius: 0 4px 4px 0;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 24px 0;
+}
+.page-break {
+    page-break-after: always;
+}
+</style>
+</head>
+<body>
+<div class="cover-page">
+    <div><span class="cover-badge">E-Book & Manual Book Resmi</span></div>
+    <div class="cover-title">SISTEM INFORMASI RENTAL MOBIL MULTI-VENDOR BERBASIS WEB</div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Buku Panduan Penggunaan dan Deskripsi Arsitektur Sistem Menyeluruh (Bab 1 - Bab 5)</div>
+    <div class="cover-meta">
+        <p><strong>Platform:</strong> Laravel 11 & Filament PHP v3 (TALL Stack)</p>
+        <p><strong>Multi-Role:</strong> Pelanggan, Mitra Usaha (Vendor), Super Administrator, & Pengemudi (Driver)</p>
+        <p>Tahun Penerbitan: 2026</p>
+    </div>
+</div>
+<div class="page-break"></div>
+<h1>E-BOOK PANDUAN PENGGUNAAN DAN DESKRIPSI SISTEM (USER MANUAL)</h1>
+<h2>SISTEM INFORMASI RENTAL MOBIL MULTI-VENDOR BERBASIS WEB</h2>
+<br>
+<hr>
+<br>
+<h3>KATA PENGANTAR</h3>
+<br>
+<p>Puji syukur ke hadirat Tuhan Yang Maha Esa atas rahmat dan karunia-Nya, sehingga Dokumen Buku Panduan Penggunaan (<em>User Manual E-Book</em>) untuk <strong>Sistem Informasi Rental Mobil Multi-Vendor Berbasis Web</strong> ini dapat diselesaikan dengan baik.</p>
+<br>
+<p>Buku panduan ini disusun secara terstruktur untuk memberikan panduan operasional langkah demi langkah (<em>step-by-step</em>) serta penjelasan teknis mendalam mengenai tata cara kerja sistem kepada seluruh pemangku kepentingan (<em>multi-stakeholders</em>). Sistem ini menghubungkan berbagai pihak dalam satu ekosistem digital transportasi terintegrasi, yang mencakup Pelanggan (<em>Customer</em>), Mitra Pengusaha Rental (<em>Vendor</em>), Pengawas Platform (<em>Administrator</em>), hingga Pengemudi Lapangan (<em>Driver</em>).</p>
+<br>
+<p>Buku panduan ini dibatasi khusus hingga <strong>Bab 5 (Panduan Pengoperasian Sistem Secara Menyeluruh)</strong> sebagai manual operasional dan deskripsi arsitektur sistem, sementara dokumen kelengkapan yuridis pendaftaran Hak Cipta (HAKI) disusun dalam berkas terpisah.</p>
+<br>
+<p>Semoga e-book panduan ini dapat memberikan manfaat nyata, memudahkan proses implementasi, serta menjadi rujukan operasional yang komprehensif bagi seluruh pengguna sistem.</p>
+<br>
+<p>Surabaya, 2026</p>
+<p><strong>Tim Pengembang Sistem Informasi Rental Mobil</strong></p>
+<br>
+<hr>
+<br>
+<h3>GLOSARIUM DAN DAFTAR ISTILAH TEKNIS</h3>
+<br>
+<p>Untuk mempermudah pemahaman pengguna dalam mengoperasikan sistem, berikut adalah definisi operasional dari istilah-istilah yang digunakan:</p>
+<br>
+<li><strong>Multi-Vendor Marketplace:</strong> Model ekosistem digital terdistribusi di mana berbagai pemilik bisnis rental mobil independen dapat mendaftarkan garasi mereka, memajang katalog armada, menetapkan tarif mandiri, dan bertransaksi langsung dengan penyewa di bawah pengawasan Superadmin.</li>
+<li><strong>Lepas Kunci (<em>Self-Drive</em>):</strong> Layanan sewa kendaraan mandiri di mana penyewa mengendarai armada sendiri tanpa didampingi oleh supir resmi rental.</li>
+<li><strong>Dengan Supir (<em>With Driver</em>):</strong> Layanan sewa armada yang menyertakan pengemudi profesional berlisensi dari pihak mitra rental dengan perhitungan tarif harian terintegrasi.</li>
+<li><strong>Smart Availability Engine:</strong> Mesin validasi otomatis pada lapisan logika bisnis yang memeriksa ketersediaan tanggal armada mobil dan jadwal penugasan supir secara simultan untuk meniadakan benturan pesanan ganda (<em>double-booking</em>).</li>
+<li><strong>Date Blocking Calendar:</strong> Fitur kalender interaktif yang memberikan wewenang kepada mitra rental untuk mengunci ketersediaan armada pada rentang tanggal tertentu (misalnya saat mobil masuk bengkel/perawatan rutin atau disewa secara luring/offline).</li>
+<li><strong>Handover (Serah Terima):</strong> Prosedur formal pemeriksaan kondisi fisik kendaraan, pencatatan odometer (kilometer awal/akhir), level bahan bakar, dan penyerahan kunci antara vendor/sopir dan penyewa.</li>
+<li><strong>Late Fee Charge:</strong> Tagihan denda keterlambatan finansial otomatis yang diterbitkan kepada penyewa saat pengembalian kendaraan melewati batas toleransi durasi sewa.</li>
+<li><strong>Dispute Resolution (Sengketa Denda):</strong> Fasilitas sanggahan digital bagi penyewa untuk mengajukan banding atas tagihan denda keterlambatan jika diakibatkan kendala teknis armada atau kelalaian vendor, dengan putusan akhir dimediasi secara independen oleh Administrator.</li>
+<li><strong>Car Change Request:</strong> Fitur pengajuan penukaran tipe unit kendaraan sebelum masa sewa dimulai (maksimal H-1) yang menghitung selisih pembayaran atau <em>refund</em> secara otomatis.</li>
+<li><strong>Live GPS Tracking &amp; Emergency SOS:</strong> Sistem telemetri pemantauan rute kendaraan secara <em>real-time</em> berbasis Leaflet JS &amp; OpenStreetMap yang dilengkapi tombol alarm darurat bahaya di jalan raya.</li>
+<li><strong>Vendor Subscription Plan:</strong> Mekanisme keanggotaan berkala (berjenjang) bagi vendor yang menentukan batas kuota armada aktif yang dapat dipasarkan di platform.</li>
+<li><strong>TALL Stack:</strong> Kombinasi teknologi antarmuka modern yang terdiri dari <strong>T</strong>ailwind CSS, <strong>A</strong>lpine.js, <strong>L</strong>aravel, dan <strong>L</strong>ivewire.</li>
+<br>
+<hr>
+<br>
+<h3>DAFTAR ISI</h3>
+<br>
+<li>[KATA PENGANTAR](#kata-pengantar)</li>
+<li>[GLOSARIUM DAN DAFTAR ISTILAH TEKNIS](#glosarium-dan-daftar-istilah-teknis)</li>
+<li>[BAB 1: PENDAHULUAN DAN GAMBARAN UMUM SISTEM](#bab-1-pendahuluan-dan-gambaran-umum-sistem)</li>
+<li>[1.1 Latar Belakang Permasalahan](#11-latar-belakang-permasalahan)</li>
+<li>[1.2 Tujuan dan Sasaran Sistem](#12-tujuan-dan-sasaran-sistem)</li>
+<li>[1.3 Nilai Kebaruan (<em>Novelty</em>) dan Keunggulan Inovasi](#13-nilai-kebaruan-novelty-dan-keunggulan-inovasi)</li>
+<li>[1.4 Sasaran Pengguna (<em>User Roles</em>)](#14-sasaran-pengguna-user-roles)</li>
+<li>[BAB 2: ARSITEKTUR DAN SPESIFIKASI TEKNOLOGI](#bab-2-arsitektur-dan-spesifikasi-teknologi)</li>
+<li>[2.1 Kebutuhan Perangkat Keras (<em>Hardware Requirements</em>)](#21-kebutuhan-perangkat-keras-hardware-requirements)</li>
+<li>[2.2 Kebutuhan Perangkat Lunak (<em>Software Stack</em>)](#22-kebutuhan-perangkat-lunak-software-stack)</li>
+<li>[2.3 Arsitektur Multi-Layer Perangkat Lunak](#23-arsitektur-multi-layer-perangkat-lunak)</li>
+<li>[2.4 Integrasi Layanan Pihak Ketiga (<em>APIs &amp; External Services</em>)](#24-integrasi-layanan-pihak-ketiga-apis--external-services)</li>
+<li>[BAB 3: PERANCANGAN BASIS DATA DAN KAMUS DATA](#bab-3-perancangan-basis-data-dan-kamus-data)</li>
+<li>[3.1 Diagram Hubungan Entitas (<em>Entity Relationship Diagram</em>)](#31-diagram-hubungan-entitas-entity-relationship-diagram)</li>
+<li>[3.2 Kamus Data Entitas Utama (<em>Data Dictionary</em>)](#32-kamus-data-entitas-utama-data-dictionary)</li>
+<li>[BAB 4: STRUKTUR PENGGUNA DAN DIAGRAM ALUR BISNIS](#bab-4-struktur-pengguna-dan-diagram-alur-bisnis)</li>
+<li>[4.1 Matriks Peran dan Hak Akses Pengguna (<em>Role Access Matrix</em>)](#41-matriks-peran-dan-hak-akses-pengguna-role-access-matrix)</li>
+<li>[4.2 Use Case Diagram Sistem](#42-use-case-diagram-sistem)</li>
+<li>[4.3 Sequence Diagram Alur Transaksi Kritis](#43-sequence-diagram-alur-transaksi-kritis)</li>
+<li>[BAB 5: PANDUAN PENGOPERASIAN SISTEM SECARA MENYELURUH (USER MANUAL)](#bab-5-panduan-pengoperasian-sistem-secara-menyeluruh-user-manual)</li>
+<li>[5.1 Membuka dan Menjalankan Sistem (<em>Accessing System</em>)](#51-membuka-dan-menjalankan-sistem-accessing-system)</li>
+<li>[5.2 Panduan Modul Pelanggan (<em>Customer Web Portal</em>)](#52-panduan-modul-pelanggan-customer-web-portal)</li>
+<li>[5.3 Panduan Modul Mitra Usaha (<em>Vendor Filament Panel</em>)](#53-panduan-modul-mitra-usaha-vendor-filament-panel)</li>
+<li>[5.4 Panduan Modul Pengawas Utama (<em>Administrator Filament Panel</em>)](#54-panduan-modul-pengawas-utama-administrator-filament-panel)</li>
+<li>[5.5 Panduan Modul Pengemudi Lapangan (<em>Driver Quick Mobile Web</em>)](#55-panduan-modul-pengemudi-lapangan-driver-quick-mobile-web)</li>
+<br>
+<hr>
+<br>
+<h1>BAB 1: PENDAHULUAN DAN GAMBARAN UMUM SISTEM</h1>
+<br>
+<h3>1.1 Latar Belakang Permasalahan</h3>
+<p>Industri transportasi dan penyewaan mobil memegang peranan krusial dalam menyokong mobilitas pariwisata, kegiatan korporasi, serta logistik masyarakat. Kendati demikian, sebagian besar pelaku usaha rental skala Usaha Mikro, Kecil, dan Menengah (UMKM) masih mengandalkan sistem konvensional (pencatatan manual di buku kas atau pemesanan melalui WhatsApp).</p>
+<br>
+<p>Metode manual tersebut kerap menimbulkan persoalan fatal:</p>
+<p><strong>1.</strong> <strong>Pemesanan Ganda (<em>Double-Booking</em>):</strong> Terjadinya benturan jadwal dua pelanggan yang menyewa unit yang sama di waktu beririsan akibat ketiadaan sinkronisasi sistem.</p>
+<p><strong>2.</strong> <strong>Ketidakpastian Jadwal Sopir:</strong> Manajemen penugasan pengemudi yang tidak terintegrasi menyebabkan supir yang masih bertugas di luar kota terpilih kembali untuk pesanan baru.</p>
+<p><strong>3.</strong> <strong>Konflik Biaya Denda Keterlambatan:</strong> Ketiadaan regulasi perhitungan denda berbasis jam yang transparan serta nihilnya wadah pengajuan keberatan (<em>dispute</em>) yang netral ketika terjadi kendala di jalan.</p>
+<p><strong>4.</strong> <strong>Resiko Keamanan di Perjalanan:</strong> Minimnya fasilitas pelacakan lokasi kendaraan langsung (<em>real-time GPS</em>) serta tidak tersedianya tombol darurat terintegrasi saat pelanggan menghadapi masalah di jalan raya.</p>
+<p><strong>5.</strong> <strong>Keterbatasan Skalabilitas Vendor:</strong> Sulitnya vendor rental lokal memperluas pangsa pasar karena mahalnya biaya pembuatan aplikasi digital mandiri.</p>
+<br>
+<p>Berangkat dari problematika tersebut, dibangun <strong>&quot;Sistem Informasi Rental Mobil Multi-Vendor Berbasis Web&quot;</strong> sebagai solusi pasar bersama (<em>marketplace</em>) yang aman, transparan, dan terotomatisasi.</p>
+<br>
+<h3>1.2 Tujuan dan Sasaran Sistem</h3>
+<p>Tujuan pengembangan sistem informasi ini meliputi:</p>
+<p><strong>1.</strong> <strong>Pusat Ekosistem Terpadu:</strong> Membangun platform multi-vendor yang memungkinkan pelaku usaha rental mendaftar, memvalidasi legalitas usaha, mengelola armada mobil, mengatur tarif, dan memonitor pendapatan secara otonom.</p>
+<p><strong>2.</strong> <strong>Otomatisasi Validasi Ketersediaan:</strong> Mengimplementasikan mesin validasi ketersediaan (<em>Smart Availability Engine</em>) yang memfilter benturan armada dan sopir secara <em>real-time</em>.</p>
+<p><strong>3.</strong> <strong>Pembayaran Multi-Kanal Terotomatisasi:</strong> Mengintegrasikan gerbang pembayaran digital Midtrans (QRIS, Virtual Account, E-Wallet) dan verifikasi transfer manual untuk menjamin transaksi aman.</p>
+<p><strong>4.</strong> <strong>Perlindungan Sengketa Berkeadilan:</strong> Menyediakan modul <em>Late Fee Dispute Resolution</em> yang memungkinkan pelanggan menyanggah denda keterlambatan dengan verifikasi data objektif oleh Administrator.</p>
+<p><strong>5.</strong> <strong>Telemetri &amp; Keamanan:</strong> Menyediakan pelacakan lokasi rute berbasis peta Leaflet OSM dan pengiriman peringatan darurat seketika (<em>Emergency SOS</em>).</p>
+<br>
+<h3>1.3 Nilai Kebaruan (<em>Novelty</em>) dan Keunggulan Inovasi</h3>
+<p>Karya perangkat lunak ini memiliki keunggulan kompetitif yang membedakannya dari sistem rental konvensional:</p>
+<p><strong>1.</strong> <strong>Multi-Guard Independent Authentication:</strong> Memisahkan sesi otentikasi antara pelanggan (<code>web</code> guard), mitra rental (<code>vendor</code> guard via Filament), dan pengawas sistem (<code>admin</code> guard via Filament) guna menjamin batas hak akses yang aman dan terisolasi.</p>
+<p><strong>2.</strong> <strong>Sinkronisasi Ganda Armada &amp; Supir:</strong> Validasi cerdas yang memeriksa waktu bebas tugas mobil sekaligus pengemudi sebelum pesanan disetujui.</p>
+<p><strong>3.</strong> <strong>Fasilitas Tukar Mobil Pra-Sewa (<em>Car Change Request</em>):</strong> Fleksibilitas bagi konsumen untuk menukar unit mobil sebelum H-1 masa sewa dengan kalkulasi selisih tarif otomatis.</p>
+<p><strong>4.</strong> <strong>Pusat Sengketa Denda (<em>Dispute Center</em>):</strong> Mekanisme mediasi peradilan digital untuk menelaah bukti foto, argumen kronologi, dan log GPS saat terjadi klaim denda.</p>
+<p><strong>5.</strong> <strong>Portal Sopir Mobile Nir-Instalasi:</strong> Antarmuka web responsif berbasis tanda tangan terenkripsi yang memungkinkan sopir mengonfirmasi tugas dan melaporkan kendala tanpa harus menginstal aplikasi native di ponsel.</p>
+<br>
+<h3>1.4 Sasaran Pengguna (<em>User Roles</em>)</h3>
+<p>Sistem ini dirancang untuk melayani empat kategori pengguna utama:</p>
+<p><strong>1.</strong> <strong>Pelanggan (<em>Customer</em>):</strong> Konsumen yang mencari, membandingkan spesifikasi, memesan, membayar sewa mobil, memantau posisi GPS, dan menyampaikan ulasan.</p>
+<p><strong>2.</strong> <strong>Mitra Rental (<em>Vendor</em>):</strong> Pemilik usaha rental terverifikasi yang mengelola armada, kalender pemblokiran, supir, serah terima mobil, serta memantau pencairan pendapatan.</p>
+<p><strong>3.</strong> <strong>Administrator (<em>Superadmin</em>):</strong> Pengelola platform yang memverifikasi izin usaha mitra, menyetujui pembayaran manual, memediasi sengketa denda, dan mengawasi lalu lintas darurat.</p>
+<p><strong>4.</strong> <strong>Pengemudi (<em>Driver</em>):</strong> Staf lapangan yang bertugas mengantar armada, mengonfirmasi serah terima fisik (<em>handover</em>), dan melaporkan hambatan perjalanan.</p>
+<br>
+<hr>
+<br>
+<h1>BAB 2: ARSITEKTUR DAN SPESIFIKASI TEKNOLOGI</h1>
+<br>
+<h3>2.1 Kebutuhan Perangkat Keras (<em>Hardware Requirements</em>)</h3>
+<br>
+<h4>A. Lingkungan Server Produksi (<em>Host Server</em>)</h4>
+<li><strong>Processor:</strong> Minimal Multi-Core 2.0 GHz vCPU (Disarankan 4 vCPU atau lebih tinggi).</li>
+<li><strong>RAM:</strong> Minimal 2.0 GB (Disarankan 4.0 GB untuk menangani pemrosesan PDF dan transaksi bersamaan).</li>
+<li><strong>Penyimpanan:</strong> Minimal 20 GB NVMe / SSD dengan partisi aman untuk dokumen terenkripsi.</li>
+<li><strong>Jaringan:</strong> Koneksi internet stabil minimal 100 Mbps dengan IP Statis dan sertifikat SSL/TLS (HTTPS).</li>
+<br>
+<h4>B. Lingkungan Perangkat Klien (<em>End-User Devices</em>)</h4>
+<li><strong>Perangkat:</strong> Komputer Desktop, Laptop, Tablet, atau Ponsel Pintar (<em>Smartphone</em> Android/iOS).</li>
+<li><strong>Resolusi Layar:</strong> Mendukung resolusi dinamis mulai 360 x 640 piksel (<em>mobile viewport</em>) hingga 1920 x 1080 piksel (<em>Full HD desktop</em>).</li>
+<li><strong>Peramban Web:</strong> Google Chrome, Mozilla Firefox, Microsoft Edge, atau Safari dengan fitur JavaScript aktif.</li>
+<br>
+<h3>2.2 Kebutuhan Perangkat Lunak (<em>Software Stack</em>)</h3>
+<br>
+<pre><code>
++-------------------------------------------------------------------------------+
+|                      KOMPOSISI SPESIFIKASI TEKNOLOGI SISTEM                   |
++----------------------+--------------------------------------------------------+
+| Komponen             | Spesifikasi / Pustaka yang Digunakan                   |
++----------------------+--------------------------------------------------------+
+| Sistem Operasi Server| Ubuntu Linux 22.04 LTS / Windows Server (XAMPP/Laragon)|
+| Bahasa Pemrograman   | PHP v8.2+ atau v8.3+, JavaScript (ES6+), SQL, HTML5    |
+| Web Server Engine    | Nginx v1.24+ / Apache HTTP Server v2.4+                |
+| Framework Backend    | Laravel Framework v11.x (Service-Driven MVC Engine)    |
+| Admin &amp; Vendor Panel | Filament PHP Framework v3.x (TALL Stack)               |
+| Sistem Basis Data    | MySQL Database Engine v8.0+ / MariaDB v10.4+           |
+| Kompiler Frontend    | Node.js LTS Engine v20.x &amp; Vite Asset Bundler v5.x     |
+| Pustaka UI &amp; Desain  | Tailwind CSS v3.x, Alpine.js v3.x, Livewire v3.x       |
+| Geospasial &amp; Peta    | Leaflet.js v1.9+ &amp; OpenStreetMap Tile Provider         |
+| Format Pertukaran    | RESTful JSON Data Standard                             |
++----------------------+--------------------------------------------------------+
+</pre>
+<br>
+<h3>2.3 Arsitektur Multi-Layer Perangkat Lunak</h3>
+<p>Sistem menerapkan arsitektur berjenjang (<em>layered architecture</em>) yang mengombinasikan konsep <strong>Model-View-Controller (MVC)</strong> dengan <strong>Service Layer Pattern</strong>:</p>
+<br>
+<pre><code>
++-----------------------------------------------------------------------------------+
+|                            PRESENTATION &amp; VIEW LAYER                              |
+|   - Blade View Templates (Customer Portal)        - Livewire Components (Reaktif) |
+|   - Filament Resource Pages (Vendor &amp; Admin)      - Mobile Driver Portal Web View |
++-----------------------------------------+-----------------------------------------+
+                                          |
+                                          v
++-----------------------------------------------------------------------------------+
+|                        ROUTING, GUARDS &amp; SECURITY MIDDLEWARE                      |
+|   - Multi-Guard Auth (web, vendor, admin)         - CSRF Protection Layer         |
+|   - Throttle Rate Limiter (Anti-Brute Force)      - Encrypted Signature Middleware|
++-----------------------------------------+-----------------------------------------+
+                                          |
+                                          v
++-----------------------------------------------------------------------------------+
+|                       CONTROLLERS &amp; RESTFUL API HANDLERS                          |
+|   - BookingController        - PaymentController       - LiveTrackingController   |
+|   - LateFeeController        - CarChangeController     - EmergencyController      |
++-----------------------------------------+-----------------------------------------+
+                                          |
+                                          v
++-----------------------------------------------------------------------------------+
+|                     SERVICE LAYER (CORE BUSINESS LOGIC ENGINE)                    |
+|   - CarAvailabilityService   - LateReturnService       - MidtransPaymentService   |
+|   - DriverAssignmentService  - SubscriptionService     - PayoutCalculationService |
++-----------------------------------------+-----------------------------------------+
+                                          |
+                                          v
++-----------------------------------------------------------------------------------+
+|                     DATA ACCESS LAYER (ELOQUENT ORM &amp; REPOSITORY)                 |
+|   - Model Relationships (Polymorphic, HasMany, BelongsTo)  - Database Query Scopes|
++-----------------------------------------+-----------------------------------------+
+                                          |
+                                          v
++-----------------------------------------------------------------------------------+
+|                       PERSISTENCE LAYER (MySQL / MariaDB RDBMS)                   |
++-----------------------------------------------------------------------------------+
+</pre>
+<br>
+<h3>2.4 Integrasi Layanan Pihak Ketiga (<em>APIs &amp; External Services</em>)</h3>
+<p><strong>1.</strong> <strong>Midtrans Snap Payment Gateway:</strong> Memproses transaksi digital otomatis melalui QRIS, Bank Virtual Account (BCA, BNI, BRI, Mandiri), dan Dompet Digital (GoPay, ShopeePay) secara <em>real-time</em> dengan validasi tanda tangan kriptografi SHA-512.</p>
+<p><strong>2.</strong> <strong>Google Identity OAuth 2.0:</strong> Fasilitas login dan registrasi cepat satu klik (<em>one-click social login</em>) bagi penyewa.</p>
+<p><strong>3.</strong> <strong>OpenStreetMap &amp; Leaflet Geolocation Engine:</strong> Menampilkan pemetaan rute kendaraan, koordinat lokasi penjemputan, serta titik lokasi darurat.</p>
+<p><strong>4.</strong> <strong>DomPDF Engine &amp; Maatwebsite Excel:</strong> Pustaka otomatisasi pencetakan invoice sewa resmi, bukti kuitansi denda, lembar serah terima, dan pembukuan finansial bulanan.</p>
+<br>
+<hr>
+<br>
+<h1>BAB 3: PERANCANGAN BASIS DATA DAN KAMUS DATA</h1>
+<br>
+<h3>3.1 Diagram Hubungan Entitas (<em>Entity Relationship Diagram</em>)</h3>
+<p>Struktur relasi basis data menghubungkan entitas utama dengan integritas referensial yang kuat:</p>
+<br>
+<pre><code>
+  +------------------+         +------------------+         +------------------+
+  |      USERS       | 1     1 |     CUSTOMERS    | 1     N |     BOOKINGS     |
+  |------------------|---------|------------------|---------|------------------|
+  | id (PK)          |         | id (PK)          |         | id (PK)          |
+  | email            |         | user_id (FK)     |         | code (Unique)    |
+  | password         |         | phone, ktp_no    |         | customer_id (FK) |
+  | role             |         | driver_license   |         | car_id (FK)      |
+  +------------------+         +------------------+         | driver_id (FK)   |
+           | 1                                              | start_date, end  |
+           |                                                | grand_total      |
+           | 1                                              | status           |
+  +------------------+                                      +------------------+
+  |     VENDORS      | 1     N +------------------+                  | 1
+  |------------------|---------|       CARS       | 1                |
+  | id (PK)          |         |------------------|                  |
+  | user_id (FK)     |         | id (PK)          |                  | 1..N
+  | company_name     |         | vendor_id (FK)   |         +------------------+
+  | nib_number       |         | brand, model     |         |     PAYMENTS     |
+  | is_verified      |         | license_plate    |         |------------------|
+  +------------------+         | price_per_day    |         | id (PK)          |
+           | 1                 | is_active        |         | booking_id (FK)  |
+           |                   +------------------+         | payment_method   |
+           | 1..N                                           | amount, status   |
+  +------------------+                                      +------------------+
+  |     DRIVERS      |                                               | 1
+  |------------------|                                               |
+  | id (PK)          |                                               | 1..N
+  | vendor_id (FK)   |                                      +--------------------+
+  | name, phone      |                                      |  LATE_FEE_CHARGES  |
+  | sim_number       |                                      |--------------------|
+  | is_active        |                                      | id (PK)            |
+  +------------------+                                      | booking_id (FK)    |
+                                                            | hours_delayed      |
+                                                            | total_charge       |
+                                                            | dispute_status     |
+                                                            +--------------------+
+</pre>
+<br>
+<h3>3.2 Kamus Data Entitas Utama (<em>Data Dictionary</em>)</h3>
+<br>
+<h4>1. Entitas Tabel <code>users</code></h4>
+<p>Menyimpan kredensial otentikasi akun seluruh aktor sistem:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID unik pengguna.</li>
+<li><code>name</code> (Varchar 255): Nama lengkap pengguna.</li>
+<li><code>email</code> (Varchar 255, Unique): Alamat surel untuk otentikasi login.</li>
+<li><code>password</code> (Varchar 255): Kata sandi terenkripsi algoritma Bcrypt.</li>
+<li><code>role</code> (Enum: &#x27;admin&#x27;, &#x27;vendor&#x27;, &#x27;customer&#x27;): Penentu tingkat hak akses pengguna.</li>
+<li><code>email_verified_at</code> (Timestamp, Nullable): Waktu konfirmasi aktivasi akun surel.</li>
+<br>
+<h4>2. Entitas Tabel <code>vendors</code></h4>
+<p>Menyimpan profil badan usaha mitra rental mobil:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID unik mitra.</li>
+<li><code>user_id</code> (BigInt, FK): Referensi berelasi ke akun pada tabel <code>users</code>.</li>
+<li><code>company_name</code> (Varchar 255): Nama komersial usaha rental.</li>
+<li><code>nib_number</code> (Varchar 100, Nullable): Nomor Induk Berusaha (NIB) / NPWP.</li>
+<li><code>address</code> (Text): Alamat lengkap lokasi kantor garasi fisik.</li>
+<li><code>bank_name</code>, <code>bank_account_number</code>, <code>bank_account_holder</code> (Varchar): Rekening pencairan pendapatan.</li>
+<li><code>status</code> (Enum: &#x27;pending&#x27;, &#x27;approved&#x27;, &#x27;rejected&#x27;, &#x27;suspended&#x27;): Status verifikasi legalitas mitra.</li>
+<br>
+<h4>3. Entitas Tabel <code>cars</code></h4>
+<p>Menyimpan katalog spesifikasi dan tarif armada sewa:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID unik unit mobil.</li>
+<li><code>vendor_id</code> (BigInt, FK): Pemilik armada (mitra rental terkait).</li>
+<li><code>brand_id</code>, <code>model_id</code>, <code>category_id</code> (BigInt, FK): Klasifikasi pabrikan dan tipe unit.</li>
+<li><code>license_plate</code> (Varchar 20, Unique): Nomor plat registrasi kendaraan.</li>
+<li><code>transmission</code> (Enum: &#x27;manual&#x27;, &#x27;automatic&#x27;): Jenis sistem transmisi.</li>
+<li><code>fuel_type</code> (Enum: &#x27;bensin&#x27;, &#x27;diesel&#x27;, &#x27;hybrid&#x27;, &#x27;electric&#x27;): Jenis bahan bakar.</li>
+<li><code>seat_capacity</code> (Integer): Jumlah kapasitas penumpang.</li>
+<li><code>price_per_day</code> (Decimal 12,2): Tarif dasar sewa harian (lepas kunci).</li>
+<li><code>driver_fee_per_day</code> (Decimal 12,2): Biaya harian tambahan untuk supir resmi.</li>
+<li><code>status</code> (Enum: &#x27;active&#x27;, &#x27;maintenance&#x27;, &#x27;inactive&#x27;): Status kesiapan unit.</li>
+<br>
+<h4>4. Entitas Tabel <code>bookings</code></h4>
+<p>Menyimpan transaksi sewa menyewa armada kendaraan:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID unik transaksi.</li>
+<li><code>code</code> (Varchar 50, Unique): Kode alfanumerik pesanan (contoh: <code>BK-202608-0012</code>).</li>
+<li><code>customer_id</code> (BigInt, FK): Referensi penyewa.</li>
+<li><code>car_id</code> (BigInt, FK): Unit armada mobil yang disewa.</li>
+<li><code>driver_id</code> (BigInt, FK, Nullable): Pengemudi yang ditugaskan (jika opsi supir dipilih).</li>
+<li><code>with_driver</code> (Boolean): Indikator sewa lepas kunci (false) atau dengan supir (true).</li>
+<li><code>start_date</code>, <code>end_date</code> (DateTime): Periode rentang waktu pemakaian sewa.</li>
+<li><code>pickup_location</code>, <code>dropoff_location</code> (Text): Alamat titik serah terima armada.</li>
+<li><code>grand_total</code> (Decimal 12,2): Total nominal pembayaran transaksi.</li>
+<li><code>status</code> (Enum: &#x27;pending&#x27;, &#x27;confirmed&#x27;, &#x27;ongoing&#x27;, &#x27;completed&#x27;, &#x27;cancelled&#x27;, &#x27;rejected&#x27;): Status siklus hidup pesanan.</li>
+<br>
+<h4>5. Entitas Tabel <code>late_fee_charges</code></h4>
+<p>Mencatat tagihan denda keterlambatan dan alur sanggahan sengketa:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID tagihan denda.</li>
+<li><code>booking_id</code> (BigInt, FK): Referensi transaksi sewa terkait.</li>
+<li><code>hours_delayed</code> (Integer): Jumlah jam keterlambatan pengembalian unit.</li>
+<li><code>hourly_rate</code> (Decimal 12,2): Tarif denda per jam yang berlaku.</li>
+<li><code>total_charge</code> (Decimal 12,2): Total nilai denda yang harus dilunasi.</li>
+<li><code>payment_status</code> (Enum: &#x27;unpaid&#x27;, &#x27;paid&#x27;, &#x27;waived&#x27;): Status pembayaran denda.</li>
+<li><code>dispute_status</code> (Enum: &#x27;none&#x27;, &#x27;pending&#x27;, &#x27;approved&#x27;, &#x27;rejected&#x27;): Status sanggahan denda penyewa.</li>
+<li><code>dispute_reason</code> (Text, Nullable): Argumen alasan sanggahan pelanggan.</li>
+<li><code>dispute_proof_path</code> (Varchar, Nullable): Lokasi berkas foto bukti sanggahan.</li>
+<li><code>admin_resolution_notes</code> (Text, Nullable): Catatan putusan independen Administrator.</li>
+<br>
+<h4>6. Entitas Tabel <code>emergency_reports</code></h4>
+<p>Menyimpan data peringatan bahaya insiden di jalan raya:</p>
+<li><code>id</code> (BigInt, PK, Auto Increment): ID laporan darurat.</li>
+<li><code>booking_id</code> (BigInt, FK): Referensi transaksi sewa yang mengalami kendala.</li>
+<li><code>latitude</code>, <code>longitude</code> (Decimal 10,8): Koordinat GPS saat tombol SOS diaktifkan.</li>
+<li><code>emergency_type</code> (Enum: &#x27;accident&#x27;, &#x27;breakdown&#x27;, &#x27;security_threat&#x27;, &#x27;medical&#x27;): Jenis insiden.</li>
+<li><code>description</code> (Text): Rincian kronologi insiden darurat.</li>
+<li><code>status</code> (Enum: &#x27;reported&#x27;, &#x27;in_progress&#x27;, &#x27;resolved&#x27;): Progres penanganan posko tanggap darurat.</li>
+<br>
+<hr>
+<br>
+<h1>BAB 4: STRUKTUR PENGGUNA DAN DIAGRAM ALUR BISNIS</h1>
+<br>
+<h3>4.1 Matriks Peran dan Hak Akses Pengguna (<em>Role Access Matrix</em>)</h3>
+<br>
+<table>
+<tr><th>Fitur &amp; Wewenang Sistem</th><th>Pelanggan (<em>Customer</em>)</th><th>Mitra Rental (<em>Vendor</em>)</th><th>Administrator</th><th>Pengemudi (<em>Driver</em>)</th></tr>
+<tr><td>Registrasi &amp; Manajemen Akun Mandiri</td><td><strong>V</strong></td><td><strong>V</strong></td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Pencarian, Filter &amp; Komparasi Armada</td><td><strong>V</strong></td><td>-</td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Pemesanan Mobil &amp; Pembayaran Digital (Midtrans)</td><td><strong>V</strong></td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>Pengajuan Tukar Mobil (<em>Car Change</em>)</td><td><strong>V</strong></td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>Pemantauan Live GPS &amp; Tombol Darurat SOS</td><td><strong>V</strong></td><td><strong>V</strong></td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Pengajuan Sengketa Denda (<em>Late Dispute</em>)</td><td><strong>V</strong></td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>Unggah Dokumen Legalitas Usaha (KYC)</td><td>-</td><td><strong>V</strong></td><td>-</td><td>-</td></tr>
+<tr><td>Manajemen Katalog Mobil &amp; Blokir Kalender</td><td>-</td><td><strong>V</strong></td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Manajemen Profil Supir &amp; Penugasan Tugas</td><td>-</td><td><strong>V</strong></td><td>-</td><td>-</td></tr>
+<tr><td>Penerbitan Tagihan Denda Keterlambatan</td><td>-</td><td><strong>V</strong></td><td>-</td><td>-</td></tr>
+<tr><td>Konfirmasi Check-in/Check-out Serah Terima</td><td>-</td><td><strong>V</strong></td><td>-</td><td><strong>V</strong></td></tr>
+<tr><td>Verifikasi Akun &amp; Legalitas Mitra Usaha</td><td>-</td><td>-</td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Validasi Transfer Pembayaran Manual</td><td>-</td><td>-</td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Mediasi &amp; Putusan Final Sengketa Denda</td><td>-</td><td>-</td><td><strong>V</strong></td><td>-</td></tr>
+<tr><td>Ekspor Laporan Finansial (PDF / Excel)</td><td>Pribadi</td><td>Vendor</td><td>Master Global</td><td>-</td></tr>
+</table>
+<br>
+<h3>4.2 Use Case Diagram Sistem</h3>
+<br>
+<pre><code>
+                         SISTEM INFORMASI RENTAL MOBIL MULTI-VENDOR
+  +-----------------------------------------------------------------------------------+
+  |                                                                                   |
+  |   (Registrasi &amp; Login Multi-Guard) &lt;=============================== [Pengguna]    |
+  |                                                                                   |
+  |   [Customer] ----&gt; (Cari &amp; Bandingkan Mobil)                                      |
+  |              ----&gt; (Booking Armada: Lepas Kunci / Sopir)                          |
+  |              ----&gt; (Pembayaran: Midtrans / Transfer Manual)                       |
+  |              ----&gt; (Live GPS Tracking &amp; Emergency SOS)                            |
+  |              ----&gt; (Ajukan Ganti Mobil H-1)                                       |
+  |              ----&gt; (Sanggahan Denda / Late Dispute)                               |
+  |              ----&gt; (Ulasan &amp; Rating Transaksi)                                    |
+  |                                                                                   |
+  |   [Vendor]   ----&gt; (Onboarding Legalitas Usaha)                                   |
+  |              ----&gt; (Kelola Data Armada &amp; Blocking Kalender)                       |
+  |              ----&gt; (Kelola Sopir &amp; Penugasan)                                     |
+  |              ----&gt; (Serah Terima Kendaraan: Handover)                             |
+  |              ----&gt; (Terbitkan Denda Keterlambatan)                                |
+  |              ----&gt; (Laporan Keuangan &amp; Rekap PDF/CSV)                             |
+  |                                                                                   |
+  |   [Admin]    ----&gt; (Verifikasi Legalitas Mitra Vendor)                            |
+  |              ----&gt; (Validasi Bukti Pembayaran Manual)                             |
+  |              ----&gt; (Mediasi &amp; Putusan Sengketa Denda)                             |
+  |              ----&gt; (Monitoring Payout &amp; Emergency Global)                         |
+  |                                                                                   |
+  |   [Driver]   ----&gt; (Konfirmasi Serah Terima / Pengembalian)                       |
+  |              ----&gt; (Lapor Hambatan Jalan / Keterlambatan)                         |
+  |                                                                                   |
+  +-----------------------------------------------------------------------------------+
+</pre>
+<br>
+<h3>4.3 Sequence Diagram Alur Transaksi Kritis</h3>
+<br>
+<h4>A. Alur Pemesanan &amp; Pembayaran Midtrans</h4>
+<p>Alur interaksi ketika pelanggan memesan kendaraan dan melakukan pembayaran:</p>
+<p><strong>1.</strong> Pelanggan memilih rentang tanggal pemakaian dan opsi supir.</p>
+<p><strong>2.</strong> Sistem mengeksekusi <code>CarAvailabilityService</code> untuk memverifikasi ketiadaan benturan jadwal.</p>
+<p><strong>3.</strong> Apabila tanggal tersedia, sistem menampilkan rincian <em>checkout</em> dan memanggil Midtrans Snap.</p>
+<p><strong>4.</strong> Pelanggan melakukan pelunasan tagihan melalui QRIS atau Virtual Account.</p>
+<p><strong>5.</strong> Webhook Midtrans mengirimkan notifikasi lunas ke sistem, sistem mengotomatisasi status pesanan menjadi <code>CONFIRMED</code>, menerbitkan invoice digital PDF, serta mengirimkan notifikasi ke panel vendor.</p>
+<br>
+<h4>B. Alur Pengembalian, Keterlambatan, dan Sengketa Denda (<em>Dispute Resolution</em>)</h4>
+<p>Alur ketika terjadi keterlambatan pengembalian unit sewa:</p>
+<p><strong>1.</strong> Pihak vendor melakukan pengecekan waktu kepulangan kendaraan di garasi.</p>
+<p><strong>2.</strong> Apabila terdeteksi keterlambatan di luar waktu toleransi, vendor menginput jumlah jam terlambat dan sistem menerbitkan tagihan denda (<em>Late Fee Charge</em>).</p>
+<p><strong>3.</strong> Notifikasi tagihan denda masuk ke akun penyewa.</p>
+<p><strong>4.</strong> Jika penyewa setuju, penyewa melunasi tagihan denda secara langsung.</p>
+<p><strong>5.</strong> Jika penyewa merasa keterlambatan bukan kesalahannya (misalnya mobil mogok karena kerusakan radiator), penyewa menekan tombol <strong>Ajukan Sengketa (Dispute)</strong>, menyertakan argumen tertulis, dan mengunggah foto bukti derek/kerusakan.</p>
+<p><strong>6.</strong> Berkas sengketa diteruskan ke Meja Kerja Administrator. Admin memeriksa log GPS, durasi perjalanan, dan tanggapan vendor.</p>
+<p><strong>7.</strong> Administrator menetapkan putusan mengikat: menerima sengketa (denda dihapuskan/dikurangi) atau menolak sengketa (denda wajib dilunasi penuh).</p>
+<br>
+<hr>
+<br>
+<h1>BAB 5: PANDUAN PENGOPERASIAN SISTEM SECARA MENYELURUH (USER MANUAL)</h1>
+<br>
+<h3>5.1 Membuka dan Menjalankan Sistem (<em>Accessing System</em>)</h3>
+<p><strong>1.</strong> Buka peramban web modern (Google Chrome, Mozilla Firefox, atau Microsoft Edge).</p>
+<p><strong>2.</strong> Masukkan alamat URL resmi aplikasi pada bilah peramban:</p>
+<li><strong>Portal Publik Pelanggan:</strong> <code>http://localhost/</code> (atau domain produksi).</li>
+<li><strong>Panel Manajemen Vendor:</strong> <code>http://localhost/vendor</code></li>
+<li><strong>Panel Administrator Utama:</strong> <code>http://localhost/admin</code></li>
+<li><strong>Portal Responsif Sopir:</strong> Akses langsung melalui tautan instan terenkripsi yang dikirimkan melalui notifikasi penugasan.</li>
+<p><strong>3.</strong> Tekan <strong>Enter</strong>. Antarmuka beranda sistem akan tampil secara langsung di layar perangkat Anda.</p>
+<br>
+<hr>
+<br>
+<h3>5.2 Panduan Modul Pelanggan (<em>Customer Web Portal</em>)</h3>
+<br>
+<h4>1. Pendaftaran Akun, Masuk Sistem, dan Pengalih Akun (<em>Account Switcher</em>)</h4>
+<li><strong>Pendaftaran Baru:</strong> Klik tombol <strong>Daftar</strong> di sudut kanan atas. Lengkapi nama lengkap, alamat surel aktif, nomor telepon WhatsApp, dan kata sandi, lalu klik <strong>Daftar Sekarang</strong>. Alternatif lain, klik <strong>Masuk dengan Google</strong> untuk otentikasi otomatis.</li>
+<li><strong>Masuk Sistem (<em>Login</em>):</strong> Masukkan alamat surel dan kata sandi, lalu klik <strong>Masuk</strong>.</li>
+<li><strong>Fitur Pengalih Akun (<em>Account Switcher</em>):</strong> Klik foto profil di sudut kanan atas, lalu pilih <strong>Tambah Akun</strong>. Pengguna dapat mendaftarkan akun kedua (misalnya akun keperluan bisnis kantor) dan berpindah akun secara instan tanpa perlu melakukan proses <em>logout</em>.</li>
+<br>
+<h4>2. Pencarian Cerdas, Filter Kategori, dan Komparasi Mobil (<em>Compare Cars</em>)</h4>
+<li><strong>Pencarian Mobil:</strong> Pada kotak pencarian beranda, tentukan tanggal mulai dan tanggal selesai sewa, lalu pilih preferensi transmisi (Manual/Otomatis). Klik tombol <strong>Cari Mobil</strong>. Sistem hanya akan menampilkan kendaraan yang berstatus bebas sewa pada tanggal tersebut.</li>
+<li><strong>Membandingkan Spesifikasi (<em>Compare</em>):</strong> Klik ikon timbangan pada kartu mobil (dapat memilih hingga 3 unit). Buka tautan <code>/compare</code> untuk melihat perbandingan berdampingan mengenai kapasitas penumpang, konsumsi BBM, fasilitas AC, dan tarif harian.</li>
+<li><strong>Daftar Keinginan (<em>Wishlist</em>):</strong> Klik ikon hati untuk menyimpan kendaraan ke daftar favorit akun Anda.</li>
+<br>
+<h4>3. Formulir Pemesanan Unit Kendaraan (<em>Booking Form</em>)</h4>
+<li>Klik kartu mobil yang diinginkan untuk membuka halaman detail lengkap.</li>
+<li>Pada panel pemesanan sebelah kanan:</li>
+<p><strong>1.</strong> Periksa kembali tanggal awal dan tanggal akhir sewa.</p>
+<p><strong>2.</strong> Pilih jenis layanan: <strong>Lepas Kunci</strong> atau <strong>Dengan Supir</strong>.</p>
+<p><strong>3.</strong> Apabila memilih opsi dengan supir, sistem menampilkan daftar pengemudi vendor yang bebas tugas pada tanggal tersebut lengkap dengan penilaian bintang dan pengalaman kerja.</p>
+<p><strong>4.</strong> Masukkan alamat penjemputan armada pada kolom catatan.</p>
+<li>Klik tombol <strong>Lanjutkan ke Pembayaran</strong>.</li>
+<br>
+<h4>4. Pembayaran Digital (Midtrans) dan Transfer Manual</h4>
+<li><strong>Pembayaran Digital (Midtrans):</strong> Pilih opsi <strong>Midtrans</strong>, lalu klik <strong>Bayar Sekarang</strong>. Jendela popup Midtrans Snap akan muncul menampilkan metode pembayaran QRIS (GoPay/ShopeePay) atau Transfer Virtual Account bank. Lakukan pembayaran sesuai petunjuk. Status pesanan akan otomatis terverifikasi menjadi <strong>Confirmed</strong>.</li>
+<li><strong>Transfer Bank Manual:</strong> Pilih opsi transfer bank manual, lakukan transfer ke rekening pengelola, kemudian klik tombol <strong>Unggah Bukti Transfer</strong> untuk melampirkan foto struk bukti transfer.</li>
+<li><strong>Unduh Invoice:</strong> Setelah pesanan berstatus <em>Confirmed</em>, klik tombol <strong>Unduh Invoice (PDF)</strong> untuk mendapatkan bukti reservasi resmi.</li>
+<br>
+<h4>5. Fitur Pengajuan Tukar Mobil Pra-Sewa (<em>Car Change Request</em>)</h4>
+<li>Apabila penyewa ingin menukar tipe mobil sebelum tanggal sewa dimulai (maksimal H-1), buka menu <strong>Pesanan Saya</strong> dan pilih transaksi terkait.</li>
+<li>Klik tombol <strong>Ajukan Ganti Mobil</strong>.</li>
+<li>Pilih unit mobil pengganti yang tersedia dari vendor yang sama. Sistem secara otomatis menghitung selisih tarif:</li>
+<li>Jika harga mobil baru lebih tinggi, penyewa melakukan pelunasan sisa kekurangan.</li>
+<li>Jika harga mobil baru lebih rendah, sistem mencatat nominal pengembalian dana (<em>refund</em>).</li>
+<br>
+<h4>6. Pelacakan Lokasi Langsung (<em>Live GPS</em>) &amp; Tombol Bahaya Darurat (<em>Emergency SOS</em>)</h4>
+<li>Selama masa sewa aktif (<em>Ongoing</em>), buka halaman rincian pesanan.</li>
+<li>Klik tab <strong>Live Tracking</strong> untuk memantau posisi terkini armada kendaraan pada peta interaktif Leaflet.</li>
+<li><strong>Tombol Darurat SOS:</strong> Apabila terjadi kecelakaan, gangguan mesin di area sepi, atau ancaman bahaya di perjalanan, tekan tombol merah <strong>Emergency SOS</strong>. Sistem akan seketika merekam koordinat lintang dan bujur serta memicu alarm darurat prioritas tinggi ke posko vendor dan administrator.</li>
+<br>
+<h4>7. Penyelesaian Sewa, Penanganan Denda, Sengketa Denda, dan Ulasan</h4>
+<li>Saat masa sewa berakhir dan unit diserahkan kembali, vendor melakukan konfirmasi pengembalian.</li>
+<li><strong>Penanganan Denda Keterlambatan:</strong> Apabila pengembalian melewati batas waktu sewa dan vendor menerbitkan tagihan denda (<em>Late Fee Charge</em>), penyewa dapat:</li>
+<li>Membayar tagihan denda secara langsung, atau</li>
+<li>Mengajukan <strong>Sengketa (Dispute)</strong> dengan mengisi alasan keberatan dan melampirkan foto bukti pendukung (misalnya struk derek jalan tol).</li>
+<li>Setelah status pesanan menjadi <strong>Completed</strong>, berikan ulasan testimoni dan rating bintang (1–5) terhadap kualitas kendaraan dan pelayanan vendor.</li>
+<li>Klik menu <strong>Rekap Riwayat Sewa</strong> untuk mengunduh rekapitulasi histori transaksi ke format PDF atau Excel.</li>
+<br>
+<hr>
+<br>
+<h3>5.3 Panduan Modul Mitra Usaha (<em>Vendor Filament Panel</em>)</h3>
+<p>Akses Panel: <code>http://localhost/vendor</code></p>
+<br>
+<h4>1. Pendaftaran Mitra &amp; Pengunggahan Legalitas Usaha (KYC Vendor)</h4>
+<p><strong>1.</strong> Buka tautan <code>/jadi-vendor</code> pada beranda publik.</p>
+<p><strong>2.</strong> Lengkapi formulir pendaftaran: Nama Perusahaan Rental, Nomor Induk Berusaha (NIB) / NPWP, Alamat Garasi, serta Rekening Bank Pencairan.</p>
+<p><strong>3.</strong> Unggah berkas dokumen verifikasi: Foto KTP Pemilik, Berkas NIB/NPWP, dan Foto Fisik Garasi Usaha.</p>
+<p><strong>4.</strong> Tunggu peninjauan dan persetujuan dari Administrator sebelum dapat mengakses panel vendor.</p>
+<br>
+<h4>2. Paket Berlangganan Kuota Armada (<em>Vendor Subscription Plans</em>)</h4>
+<p><strong>1.</strong> Masuk ke menu <strong>Paket Langganan (Billing &amp; Plans)</strong> pada bilah navigasi kiri.</p>
+<p><strong>2.</strong> Pilih paket yang sesuai dengan kapasitas armada usaha Anda (misal: Starter, Professional, atau Enterprise).</p>
+<p><strong>3.</strong> Selesaikan tagihan pembayaran paket langganan. Kuota kapasitas unit mobil yang dapat dipajang vendor akan terkunci secara otomatis sesuai batas paket yang aktif.</p>
+<br>
+<h4>3. Pengelolaan Katalog Armada Mobil (<em>Cars Resource</em>)</h4>
+<p><strong>1.</strong> Masuk ke menu <strong>Armada Mobil</strong> &gt; klik <strong>Tambah Mobil</strong>.</p>
+<p><strong>2.</strong> Isi spesifikasi teknis kendaraan: Merek, Model, Tahun Produksi, Nomor Plat Polisi, Tipe Transmisi, dan Jenis Bahan Bakar.</p>
+<p><strong>3.</strong> Tentukan Harga Sewa Harian Lepas Kunci dan Biaya Tambahan Supir Harian.</p>
+<p><strong>4.</strong> Unggah foto-foto unit mobil (tampak depan, samping, dan interior).</p>
+<p><strong>5.</strong> Atur status unit: <em>Aktif</em>, <em>Maintenance</em>, atau <em>Nonaktif</em>.</p>
+<br>
+<h4>4. Kalender Ketersediaan &amp; Pemblokiran Tanggal (<em>Date Blocking</em>)</h4>
+<p><strong>1.</strong> Buka menu <strong>Kalender Armada</strong>.</p>
+<p><strong>2.</strong> Pilih unit mobil tertentu pada tampilan kalender interaktif.</p>
+<p><strong>3.</strong> Klik dan pilih rentang tanggal yang ingin diblokir (misalnya untuk keperluan perawatan bengkel berkala atau pesanan sewa luring/offline). Pada tanggal yang diblokir, mobil otomatis tidak dapat dipesan oleh pelanggan di web.</p>
+<br>
+<h4>5. Manajemen Data Pengemudi (<em>Driver Management</em>)</h4>
+<p><strong>1.</strong> Buka menu <strong>Kelola Sopir</strong> &gt; klik <strong>Tambah Sopir</strong>.</p>
+<p><strong>2.</strong> Masukkan identitas pengemudi: Nama Lengkap, Nomor Kontak WhatsApp aktif, Nomor SIM A/B, Pengalaman Mengemudi, dan Pasfoto.</p>
+<p><strong>3.</strong> Sistem secara otomatis menjadwalkan penugasan pengemudi agar tidak terjadi benturan perjalanan antar-pesanan.</p>
+<br>
+<h4>6. Manajemen Pesanan Masuk, Serah Terima (<em>Handover</em>), dan Penerbitan Denda</h4>
+<p><strong>1.</strong> Buka menu <strong>Pesanan Masuk (Bookings)</strong> untuk meninjau pesanan berstatus <em>Confirmed</em>.</p>
+<p><strong>2.</strong> Pada hari serah terima kendaraan, lakukan inspeksi fisik bersama pelanggan dan klik <strong>Konfirmasi Handover Unit</strong> (status berubah menjadi <em>Ongoing</em>).</p>
+<p><strong>3.</strong> Saat kendaraan dikembalikan:</p>
+<li>Jika tepat waktu: Klik tombol <strong>Konfirmasi Pengembalian</strong> untuk menyelesaikan pesanan (<em>Completed</em>).</li>
+<li>Jika terlambat: Masukkan jumlah jam keterlambatan, lalu sistem menerbitkan tagihan denda keterlambatan (<em>Late Fee Charge</em>) kepada penyewa.</li>
+<br>
+<h4>7. Laporan Keuangan, Omzet, dan Ekspor Rekapitulasi</h4>
+<p><strong>1.</strong> Buka menu <strong>Laporan Finansial</strong>.</p>
+<p><strong>2.</strong> Pantau grafik pendapatan kotor harian/bulanan, potongan komisi platform, dan total saldo pendapatan bersih yang dapat ditarik (<em>Payout</em>).</p>
+<p><strong>3.</strong> Klik tombol <strong>Ekspor PDF</strong> atau <strong>Ekspor Excel</strong> untuk mengunduh arsip laporan pembukuan usaha.</p>
+<br>
+<hr>
+<br>
+<h3>5.4 Panduan Modul Pengawas Utama (<em>Administrator Filament Panel</em>)</h3>
+<p>Akses Panel: <code>http://localhost/admin</code></p>
+<br>
+<h4>1. Verifikasi Legalitas Mitra Usaha (KYC Vendor)</h4>
+<p><strong>1.</strong> Buka menu <strong>Manajemen Vendor</strong>.</p>
+<p><strong>2.</strong> Klik tombol <strong>Tinjau Dokumen</strong> pada pendaftaran vendor baru yang berstatus <em>Pending</em>.</p>
+<p><strong>3.</strong> Periksa berkas identitas KTP, NIB, NPWP, dan kesesuaian foto garasi usaha.</p>
+<p><strong>4.</strong> Klik tombol <strong>Setujui (Approve)</strong> untuk mengaktifkan akun vendor atau <strong>Tolak (Reject)</strong> dengan mencantumkan alasan perbaikan dokumen.</p>
+<br>
+<h4>2. Validasi Transaksi Pembayaran Manual</h4>
+<p><strong>1.</strong> Buka menu <strong>Transaksi Pembayaran Manual</strong>.</p>
+<p><strong>2.</strong> Periksa kesesuaian mutasi rekening dengan foto bukti struk transfer yang diunggah oleh pelanggan atau vendor.</p>
+<p><strong>3.</strong> Klik tombol <strong>Konfirmasi Pembayaran</strong> untuk memperbarui status pesanan menjadi <em>Confirmed</em> secara instan.</p>
+<br>
+<h4>3. Pusat Mediasi Sengketa Denda (<em>Dispute Resolution Center</em>)</h4>
+<p><strong>1.</strong> Buka menu <strong>Pusat Sengketa (Disputes)</strong>.</p>
+<p><strong>2.</strong> Tinjau rekaman kronologi perselisihan: argumen keberatan penyewa, foto bukti di lapangan, rekaman jejak GPS, serta tanggapan mitra rental.</p>
+<p><strong>3.</strong> Tetapkan putusan mediasi yang mengikat:</p>
+<li><strong>Menerima Sengketa:</strong> Menghapus atau memotong nilai denda keterlambatan jika vendor terbukti lalai atau unit mobil mengalami malfungsi teknis.</li>
+<li><strong>Menolak Sengketa:</strong> Mewajibkan penyewa melunasi tagihan denda keterlambatan secara penuh.</li>
+<br>
+<h4>4. Pusat Tanggap Darurat (<em>Emergency Dispatch</em>) &amp; Monitoring Global</h4>
+<p><strong>1.</strong> Buka menu <strong>Pusat Darurat (Emergency Dispatch)</strong> untuk memantau insiden aktif di jalan raya yang dikirimkan melalui tombol SOS secara <em>real-time</em>.</p>
+<p><strong>2.</strong> Buka menu <strong>Laporan Master Global</strong> untuk mengekspor rekapitulasi data seluruh transaksi rental nasional, peringkat vendor terbaik, serta distribusi bagi hasil komisi platform ke format PDF atau Excel.</p>
+<br>
+<hr>
+<br>
+<h3>5.5 Panduan Modul Pengemudi Lapangan (<em>Driver Quick Mobile Web</em>)</h3>
+<p>Akses Portal: Melalui tautan dinamis aman pada ponsel pengemudi (<code>http://localhost/driver/late-report/{kode_booking}</code>)</p>
+<br>
+<p><strong>1.</strong> Pengemudi membuka tautan tugas pada peramban ponsel pintar tanpa kewajiban mengunduh aplikasi tambahan dari Play Store/App Store.</p>
+<p><strong>2.</strong> <strong>Fitur Pengemudi di Lapangan:</strong></p>
+<li>Melihat rincian kontak penyewa, waktu sewa, dan titik jemput kendaraan.</li>
+<li>Menekan tombol <strong>Konfirmasi Serah Terima Awal</strong> saat unit mobil diserahkan ke pelanggan.</li>
+<li>Mengirimkan <strong>Laporan Kendala Lapangan</strong> apabila terjadi hambatan macet total atau insiden cuaca agar terdokumentasi resmi di sistem.</li>
+<li>Menekan tombol <strong>Konfirmasi Pengembalian Armada</strong> saat masa sewa selesai dan kunci mobil telah kembali di tangan pengemudi/garasi.</li>
+<br>
+<hr>
+<p><em>E-Book Panduan Penggunaan dan Deskripsi Sistem Informasi Rental Mobil Multi-Vendor Berbasis Web.</em></p>
+<br>
+</body>
+</html>
